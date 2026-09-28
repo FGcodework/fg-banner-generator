@@ -5,33 +5,13 @@
     "title_prefix": "FG",
     "theme": "orange",
     "palette": {
-      "background_top": "#082957",
-      "background_bottom": "#001A3A",
+      "background_top": "#071B35",
+      "background_bottom": "#031126",
       "text_primary": "#F7F9FF",
       "text_secondary": "#B8C6DF",
-      "panel_fill": "#07396C",
-      "panel_border": "#7CC6FF",
-      "panel_glow": "#168FFF"
-    }
-  },
-  "themes": {
-    "orange": {
-      "palette": {
-        "accent": "#FF4B1F",
-        "accent_secondary": "#FF6B2B"
-      }
-    },
-    "green": {
-      "palette": {
-        "accent": "#31C46B",
-        "accent_secondary": "#55D982"
-      }
-    },
-    "blue": {
-      "palette": {
-        "accent": "#2FA8FF",
-        "accent_secondary": "#55BCFF"
-      }
+      "panel_fill": "#0A294A",
+      "panel_border": "#2B5C86",
+      "panel_glow": "#FF5A3D"
     }
   },
   "projects": [
@@ -39,15 +19,27 @@
       "id": "email-remover",
       "title": "Email Remover",
       "subtitle": "Stop harvesters cold — emails never reach the page.",
-      "extension_type": "System plugin",
+      "extension_type": "System Plugin",
       "logo": "assets/logos/email-remover.png",
       "placeholder_logo": "@",
-      "theme": "orange",
+      "template": "jed",
+      "category": {
+        "name": "Site Management",
+        "icon": "shield"
+      },
+      "joomla": [
+        "Joomla 3.10",
+        "Joomla 4–6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
       "features": [
         {
           "icon": "shield",
           "heading": "Remove or replace",
-          "description": "strip mailto: links & plain-text addresses site-wide"
+          "description": "strip mailto: links & plain-text addresses site-wide",
+          "hero": true
         },
         {
           "icon": "image",
@@ -62,12 +54,12 @@
         {
           "icon": "puzzle",
           "heading": "Two builds, one plugin",
-          "description": "classic Joomla 3.10 or native Joomla 4–6 — same update site"
+          "description": "classic Joomla 3.10 or native Joomla 4–6"
         }
       ],
       "output": "fg-email-remover.png",
       "logo_mode": "contain",
-      "logo_size": "90%",
+      "logo_size": "88%",
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
@@ -76,15 +68,27 @@
       "id": "strip-comments",
       "title": "Strip Comments",
       "subtitle": "Cleaner output. Smaller HTML. Zero hassle.",
-      "extension_type": "System plugin",
+      "extension_type": "System Plugin",
       "logo": "assets/logos/strip-comments.png",
       "placeholder_logo": "</>",
-      "theme": "green",
+      "template": "jed",
+      "category": {
+        "name": "Site Management",
+        "icon": "code"
+      },
+      "joomla": [
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
       "features": [
         {
           "icon": "broom",
           "heading": "Cleaner page output",
-          "description": "remove unnecessary HTML comments from rendered pages"
+          "description": "remove unnecessary HTML comments from rendered pages",
+          "hero": true
         },
         {
           "icon": "code",
@@ -103,9 +107,9 @@
         }
       ],
       "output": "fg-strip-comments.png",
-      "logo_mode": "full",
-      "logo_size": "100%",
-      "logo_scale": 1.12,
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
     },
@@ -113,15 +117,27 @@
       "id": "auto-lightbox",
       "title": "Auto Lightbox",
       "subtitle": "Automatic lightbox behavior without editing article markup.",
-      "extension_type": "Content plugin",
+      "extension_type": "Content Plugin",
       "logo": "assets/logos/auto-lightbox.png",
       "placeholder_logo": "◫",
-      "theme": "blue",
+      "template": "jed",
+      "category": {
+        "name": "Photos & Images",
+        "icon": "image"
+      },
+      "joomla": [
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
       "features": [
         {
           "icon": "image",
           "heading": "Automatic detection",
-          "description": "turn article images into lightbox links automatically"
+          "description": "turn article images into lightbox links automatically",
+          "hero": true
         },
         {
           "icon": "link",
@@ -140,9 +156,9 @@
         }
       ],
       "output": "fg-auto-lightbox.png",
-      "logo_mode": "full",
-      "logo_size": "100%",
-      "logo_scale": 1.20,
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
     }
