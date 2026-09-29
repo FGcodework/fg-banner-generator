@@ -1,69 +1,70 @@
-# FG Banner Generator — JED Banner Style v1
+# FG Banner Generator — JED Banner Style
 
-This patch adds a separate JED-oriented template to the existing FG Banner Generator v3.2.1.
+Separate JED-oriented template for the FG Banner Generator (v3.3).
 
-## Important
+## Files
 
-The existing `templates/banner.html` and `templates/banner.css` remain the original FG master style.
+The original FG master style stays untouched:
+
+- `templates/banner.html`
+- `templates/banner.css`
 
 JED uses:
 
 - `templates/jed.html`
 - `templates/jed.css`
 
-The three existing projects are configured with their real repository logo paths:
-
-- `assets/logos/email-remover.png`
-- `assets/logos/strip-comments.png`
-- `assets/logos/auto-lightbox.png`
-
 ## Render
 
-Existing FG style:
+`projects.json` sets `"template": "jed"` on every project, so the default run renders JED:
 
 ```bash
+python render.py all
 python render.py email-remover
 ```
 
-JED style:
+Explicit template / both templates:
 
 ```bash
 python render.py email-remover --template jed
-python render.py strip-comments --template jed
-python render.py auto-lightbox --template jed
+python render.py all --all-templates
 ```
 
-All three:
+Layout check without saving anything (also runs in CI before rendering):
 
 ```bash
-python render.py all --template jed
+python render.py check
 ```
 
-JED output is written to:
+JED output is written to `output/jed/`, the original style to `output/banner/`.
+`output/index.html` lists everything that has been rendered, grouped by template.
 
-```text
-output/jed/
-```
+## Projects
+
+- `email-remover`
+- `strip-comments`
+- `auto-lightbox`
+- `fgcustomrightclick`
 
 ## Design rationale
 
-The three real FG logos already share a strong visual language:
+The FG logos share a strong visual language:
 
 - deep navy / blue base
 - white primary symbol
 - coral/orange diagonal or accent element
 
-JED v1 therefore uses that existing brand language instead of introducing a new green/teal palette.
+JED therefore reuses that brand language instead of introducing a new green/teal palette.
 
 The JED layout intentionally differs from the original glossy FG layout:
 
 - more restrained logo frame
-- orange/coral FG accent
+- coral FG accent, driven by `palette.panel_glow` in `projects.json`
 - category label
 - Joomla/version badges
 - free/license badges
-- one highlighted hero feature
+- one highlighted hero feature (`"hero": true`), aligned on the same icon/text axis as the other rows
 - smaller outline feature icons
-- automatic title sizing for longer extension names
+- automatic title sizing: a long title is shrunk by measurement (down to 44 px) instead of by character count
 
-This keeps the three extensions recognizably part of the same FG family while making the banner more suitable for an extension-directory presentation.
+This keeps the extensions recognizably part of the same FG family while making the banner more suitable for an extension-directory presentation.

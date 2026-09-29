@@ -11,7 +11,9 @@
       "text_secondary": "#B8C6DF",
       "panel_fill": "#0A294A",
       "panel_border": "#2B5C86",
-      "panel_glow": "#FF5A3D"
+      "panel_glow": "#FF5A3D",
+      "accent": "#FF4B1F",
+      "accent_secondary": "#FF7A45"
     }
   },
   "projects": [

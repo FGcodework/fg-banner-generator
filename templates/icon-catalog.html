@@ -8,5 +8,5 @@ body{font-family:system-ui,sans-serif;background:#07182f;color:#f5f8ff;margin:30
 img{width:42px;height:42px;filter:brightness(0) invert(1)}
 code{display:block;margin-top:10px;color:#b9c7de}
 </style></head><body><h1>Tabler icon catalog</h1><div class="grid">
-{% for name in icon_names %}<div class="card"><img src="icons/{{ name }}.svg" alt=""><code>{{ name }}</code></div>{% endfor %}
+{% for name in icon_names %}<div class="card"><img src="{{ icon_base }}/{{ name }}.svg" alt=""><code>{{ name }}</code></div>{% endfor %}
 </div></body></html>

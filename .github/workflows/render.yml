@@ -8,6 +8,11 @@ on:
         required: true
         default: "all"
         type: string
+      all_templates:
+        description: "Render every template (banner + jed), not only the one set in projects.json"
+        required: false
+        default: false
+        type: boolean
 
   push:
     paths:
@@ -27,6 +32,7 @@ permissions:
 jobs:
   render:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -46,32 +52,44 @@ jobs:
       - name: Install Chromium for Playwright
         run: python -m playwright install --with-deps chromium
 
-
+      # User-controlled input goes through env vars, never straight into the script body.
       - name: Select project
         id: selection
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_PROJECT: ${{ inputs.project_id }}
+          INPUT_ALL_TEMPLATES: ${{ inputs.all_templates }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            PROJECT="${{ inputs.project_id }}"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            PROJECT="$INPUT_PROJECT"
           else
             PROJECT="all"
           fi
 
           PROJECT="$(echo "$PROJECT" | xargs)"
+          [ -z "$PROJECT" ] && PROJECT="all"
 
-          if [ -z "$PROJECT" ]; then
-            PROJECT="all"
+          if ! printf '%s' "$PROJECT" | grep -Eq '^[A-Za-z0-9_-]+$'; then
+            echo "::error::Invalid project ID (allowed: letters, digits, - and _)"
+            exit 1
+          fi
+
+          ARGS=""
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "$INPUT_ALL_TEMPLATES" = "true" ]; then
+            ARGS="--all-templates"
           fi
 
           echo "project=$PROJECT" >> "$GITHUB_OUTPUT"
-          echo "Rendering: $PROJECT"
+          echo "args=$ARGS" >> "$GITHUB_OUTPUT"
+          echo "Rendering: $PROJECT $ARGS"
 
       - name: Validate project ID
         if: steps.selection.outputs.project != 'all'
         shell: bash
+        env:
+          PROJECT: ${{ steps.selection.outputs.project }}
         run: |
-          PROJECT="${{ steps.selection.outputs.project }}"
-
           if ! python render.py list | awk '{print $1}' | grep -Fxq "$PROJECT"; then
             echo "::error::Unknown project ID: $PROJECT"
             echo
@@ -80,58 +98,46 @@ jobs:
             exit 1
           fi
 
+      # Fails the run on invalid config (e.g. a missing icon), output-file collisions
+      # and any text that would be cut off or overflow the banner - before anything
+      # is rendered or committed.
+      - name: Check layout
+        shell: bash
+        env:
+          PROJECT: ${{ steps.selection.outputs.project }}
+          ARGS: ${{ steps.selection.outputs.args }}
+        run: |
+          if [ "$PROJECT" = "all" ]; then
+            python render.py check $ARGS
+          else
+            python render.py check "$PROJECT" $ARGS
+          fi
+
       - name: Diagnostic - before render
         shell: bash
         run: |
-          echo "=== Git status before render ==="
-          git status --short
-
+          echo "=== Projects ==="
+          python render.py list
           echo
           echo "=== Output files before render ==="
-          find output -maxdepth 1 -type f -print -exec sha256sum {} \; 2>/dev/null || true
-
-          echo
-          echo "=== Selected logo/config ==="
-          PROJECT="${{ steps.selection.outputs.project }}"
-          echo "Project: $PROJECT"
-
-          if [ "$PROJECT" != "all" ]; then
-            python - <<'PY'
-          import json
-          from pathlib import Path
-
-          project_id = """${{ steps.selection.outputs.project }}"""
-          data = json.loads(Path("projects.json").read_text(encoding="utf-8"))
-
-          for project in data.get("projects", []):
-              if project.get("id") == project_id:
-                  print("Config:", project)
-                  logo = project.get("logo")
-                  if logo:
-                      p = Path(logo)
-                      print("Logo path:", p)
-                      print("Logo exists:", p.exists())
-                      if p.exists():
-                          print("Logo bytes:", p.stat().st_size)
-                  break
-          PY
-          fi
+          find output -type f -print -exec sha256sum {} \; 2>/dev/null || true
 
       - name: Render banner(s)
         shell: bash
+        env:
+          PROJECT: ${{ steps.selection.outputs.project }}
+          ARGS: ${{ steps.selection.outputs.args }}
         run: |
-          python render.py "${{ steps.selection.outputs.project }}"
+          python render.py "$PROJECT" $ARGS
 
       - name: Diagnostic - after render
         shell: bash
         run: |
           echo "=== Output files after render ==="
-          find output -maxdepth 1 -type f -print -exec sha256sum {} \; 2>/dev/null || true
-
+          find output -type f -print -exec sha256sum {} \; 2>/dev/null || true
           echo
           echo "=== Git status after render ==="
           git status --short
-
           echo
           echo "=== Changed output files ==="
           git diff --name-status -- output/ || true
@@ -150,6 +156,8 @@ jobs:
 
       - name: Commit generated output
         shell: bash
+        env:
+          PROJECT: ${{ steps.selection.outputs.project }}
         run: |
           if git diff --cached --quiet; then
             echo "No banner changes to commit."
@@ -159,6 +167,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          PROJECT="${{ steps.selection.outputs.project }}"
           git commit -m "Render FG banner: ${PROJECT}"
+
+          # Someone may have pushed while this job was running.
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push

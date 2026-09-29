@@ -46,7 +46,7 @@
       {% if category and category.name %}
       <div class="eyebrow">
         <span class="eyebrow-icon">
-          {% include 'icons/' + category.icon + '.svg' ignore missing %}
+          {% include 'icons/' + category.icon + '.svg' %}
         </span>
         {{ category.name }}
       </div>
@@ -77,7 +77,7 @@
       {% for f in features %}
       <article class="feature {% if f.hero %}feature-hero{% endif %}">
         <div class="feature-icon">
-          {% include 'icons/' + f.icon + '.svg' ignore missing %}
+          {% include 'icons/' + f.icon + '.svg' %}
         </div>
         <div class="feature-copy">
           <h2>{{ f.heading }}</h2>
