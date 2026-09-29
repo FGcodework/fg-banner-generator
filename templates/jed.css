@@ -138,12 +138,12 @@ body {
 
 .extension-type {
   margin-top: 25px;
-  padding: 9px 17px;
+  padding: 10px 20px;
   border: 1px solid color-mix(in srgb, var(--glow) 42%, transparent);
   border-radius: 999px;
   background: color-mix(in srgb, var(--glow) 8%, transparent);
   color: color-mix(in srgb, var(--glow) 65%, #fff);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: .13em;
   text-transform: uppercase;
@@ -167,7 +167,7 @@ body {
   gap: 9px;
   margin-bottom: 13px;
   color: #8eacc5;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -176,14 +176,14 @@ body {
 .eyebrow-icon {
   display: grid;
   place-items: center;
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   color: color-mix(in srgb, var(--glow) 84%, #fff);
 }
 
 .eyebrow-icon svg {
-  width: 21px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
   stroke: currentColor;
   fill: none;
   stroke-width: 2;
@@ -212,7 +212,7 @@ h1 .fg {
 .subtitle {
   max-width: 940px;
   margin-top: 18px;
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1.16;
   font-weight: 500;
   letter-spacing: -.45px;
@@ -227,12 +227,12 @@ h1 .fg {
 }
 
 .badge {
-  padding: 7px 12px;
+  padding: 8px 15px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.13);
   background: rgba(255,255,255,.055);
   color: #dbe7f1;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -281,7 +281,7 @@ h1 .fg {
 
 .feature {
   display: grid;
-  grid-template-columns: 48px minmax(0,1fr);
+  grid-template-columns: 52px minmax(0,1fr);
   align-items: center;
   column-gap: 16px;
   min-height: 70px;
@@ -299,8 +299,8 @@ h1 .fg {
 }
 
 .feature-icon {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
   border-radius: 13px;
@@ -310,8 +310,8 @@ h1 .fg {
 }
 
 .feature-icon svg {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   color: currentColor;
   stroke: currentColor;
   fill: none;
@@ -326,7 +326,7 @@ h1 .fg {
 
 .feature h2 {
   margin: 0 0 4px;
-  font-size: 21px;
+  font-size: 25px;
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: -.35px;
@@ -336,7 +336,7 @@ h1 .fg {
 .feature p {
   margin: 0;
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.15;
   font-weight: 500;
   letter-spacing: -.15px;
@@ -344,14 +344,14 @@ h1 .fg {
 }
 
 .features-3 .feature { min-height: 78px; }
-.features-3 .feature h2 { font-size: 22px; }
+.features-3 .feature h2 { font-size: 26px; }
 
 .developer {
   position: absolute;
   right: 0;
   bottom: 25px;
   color: #71879b;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
 }
 
