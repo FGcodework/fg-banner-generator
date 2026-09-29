@@ -91,6 +91,7 @@ Aktuálne sú pripravené tieto konfigurácie:
 - `auto-lightbox`
 - `fgcustomrightclick`
 - `admin-login-customizer`
+- `remove-generator`
 
 ## Šablóny
 

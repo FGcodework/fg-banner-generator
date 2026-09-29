@@ -257,6 +257,55 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
+    },
+    {
+      "id": "remove-generator",
+      "title": "Remove Generator",
+      "subtitle": "Strip the Joomla generator meta tag and fingerprinting headers.",
+      "extension_type": "System Plugin",
+      "logo": "assets/logos/remove-generator.png",
+      "placeholder_logo": "⊘",
+      "template": "jed",
+      "category": {
+        "name": "Site Management",
+        "icon": "shield-check"
+      },
+      "joomla": [
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        {
+          "icon": "replace",
+          "heading": "Generator meta tag control",
+          "description": "remove completely, or replace with custom text",
+          "hero": true
+        },
+        {
+          "icon": "eye",
+          "heading": "Fingerprinting headers",
+          "description": "optional toggles for X-Powered-By and X-Generator"
+        },
+        {
+          "icon": "bolt",
+          "heading": "Correct removal timing",
+          "description": "runs on onBeforeRespond, right before the response is sent"
+        },
+        {
+          "icon": "code",
+          "heading": "Joomla 5/6 native",
+          "description": "PSR-4, DI container, typed Joomla event classes"
+        }
+      ],
+      "output": "fg-remove-generator.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     }
   ]
 }
