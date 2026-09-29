@@ -172,7 +172,7 @@
       "template": "jed",
       "category": {
         "name": "Site Management",
-        "icon": "menu-2"
+        "icon": "shield-check"
       },
       "joomla": [
         "Joomla 4",
@@ -184,7 +184,7 @@
       "developer": "FGcodework",
       "features": [
         {
-          "icon": "menu-2",
+          "icon": "code",
           "heading": "Custom context menu",
           "description": "Build a fully custom, keyboard-accessible context menu.",
           "hero": true
@@ -195,7 +195,7 @@
           "description": "Control printing, copying, image dragging and shortcuts."
         },
         {
-          "icon": "keyboard",
+          "icon": "bolt",
           "heading": "Keyboard & touch support",
           "description": "Accessible controls with keyboard and long-press support."
         }
