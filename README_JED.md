@@ -39,6 +39,17 @@ python render.py check
 JED output is written to `output/jed/`, the original style to `output/banner/`.
 `output/index.html` lists everything that has been rendered, grouped by template.
 
+## Logo
+
+The logo fills the whole square frame (`contain`, so nothing is cropped and non-square
+logos keep their ratio). The frame corners are rounded to match the usual ~18 % corner
+radius of the FG logos.
+
+- `logo_size` is **not used** by this template any more (the banner template still uses it).
+- Fine tuning per project: `logo_scale` (e.g. `0.92` = a bit of air around a glyph without
+  margins, `1.04` = compensate a transparent margin in the PNG), `logo_offset_x`, `logo_offset_y`.
+- Without a logo the `placeholder_logo` is shown on the dark gradient tile.
+
 ## Projects
 
 - `email-remover`
