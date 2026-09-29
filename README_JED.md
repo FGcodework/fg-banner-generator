@@ -45,6 +45,7 @@ JED output is written to `output/jed/`, the original style to `output/banner/`.
 - `strip-comments`
 - `auto-lightbox`
 - `fgcustomrightclick`
+- `admin-login-customizer`
 
 ## Design rationale
 

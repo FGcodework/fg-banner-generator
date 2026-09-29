@@ -208,6 +208,55 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
+    },
+    {
+      "id": "admin-login-customizer",
+      "title": "Admin Login Customizer",
+      "subtitle": "Give the login screen your own identity, not Joomla’s.",
+      "extension_type": "System Plugin",
+      "logo": "assets/logos/admin-login-customizer.png",
+      "placeholder_logo": "▣",
+      "template": "jed",
+      "category": {
+        "name": "Site Management",
+        "icon": "lock"
+      },
+      "joomla": [
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        {
+          "icon": "photo",
+          "heading": "Full visual control",
+          "description": "logo, background, colours, card shadow, six presets",
+          "hero": true
+        },
+        {
+          "icon": "eye",
+          "heading": "Text always readable",
+          "description": "automatic WCAG contrast whenever you set a background"
+        },
+        {
+          "icon": "download",
+          "heading": "Portable settings",
+          "description": "export or import a look as JSON to reuse it across sites"
+        },
+        {
+          "icon": "code",
+          "heading": "Joomla 5 & 6 native",
+          "description": "PSR-4, DI container, a single self-hosted update channel"
+        }
+      ],
+      "output": "fg-admin-login-customizer.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     }
   ]
 }

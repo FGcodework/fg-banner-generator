@@ -90,6 +90,7 @@ Aktuálne sú pripravené tieto konfigurácie:
 - `strip-comments`
 - `auto-lightbox`
 - `fgcustomrightclick`
+- `admin-login-customizer`
 
 ## Šablóny
 
