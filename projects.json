@@ -162,5 +162,34 @@
       "logo_offset_x": 0,
       "logo_offset_y": 0
     }
+    {
+    "id": "fgcustomrightclick",
+    "template": "jed",
+    "name": "FG Custom Right Click",
+    "type": "System Plugin",
+    "category": "Site Management",
+    "description": "Control the right-click experience on your Joomla site",
+    "logo": "fgcustomrightclick.png",
+    "joomla": ["4", "5", "6"],
+    "license": "GPL",
+    "developer": "FGcodework",
+    "features": [
+      {
+        "icon": "menu-2",
+        "heading": "Custom context menu",
+        "description": "..."
+      },
+      {
+        "icon": "shield-check",
+        "heading": "Content protection",
+        "description": "..."
+      },
+      {
+        "icon": "keyboard",
+        "heading": "Keyboard & touch support",
+        "description": "..."
+      }
+    ]
+  }
   ]
 }
