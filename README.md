@@ -92,6 +92,7 @@ Aktuálne sú pripravené tieto konfigurácie:
 - `fgcustomrightclick`
 - `admin-login-customizer`
 - `remove-generator`
+- `editor-switcher`
 
 ## Šablóny
 
@@ -117,7 +118,7 @@ Pred renderom (a v CI pred commitom) sa robí:
 **Meranie v prehliadači** (po načítaní fontov):
 - dlhý titulok sa automaticky zmenší (najviac na 44 px),
 - text orezaný horizontálne (`white-space: nowrap`), text príliš blízko okraja,
-- slogan zalomený na viac ako 2 riadky,
+- slogan, ktorý sa nezmestí na jeden riadok (najprv sa automaticky zmenší, najviac na 26 px),
 - prekryv posledného feature s riadkom „by <developer>“.
 
 `check` (a `--strict`) pri takomto probléme skončí s kódom 1. Bez `--strict` sa banner aj tak vyrenderuje a problém sa vypíše ako `⚠`.

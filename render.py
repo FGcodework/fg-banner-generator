@@ -256,6 +256,18 @@ FIT_AND_CHECK_JS = """
     if (s !== start) shrunk = {from: start, to: s};
   }
 
+  // subtitle: shrink until it fits on one line (down to 26px)
+  let subShrunk = null;
+  const subEl = document.querySelector('.subtitle');
+  if (subEl) {
+    const subLines = () => Math.round(subEl.getBoundingClientRect().height /
+                                      parseFloat(getComputedStyle(subEl).lineHeight));
+    const start = parseFloat(getComputedStyle(subEl).fontSize);
+    let s = start;
+    while (subLines() > 1 && s > 26) { s -= 1; subEl.style.fontSize = s + 'px'; }
+    if (s !== start) subShrunk = {from: start, to: s};
+  }
+
   const label = el => el.tagName.toLowerCase() +
     (el.className && typeof el.className === 'string' ? '.' + el.className.split(' ')[0] : '');
   const text = el => el.textContent.trim().replace(/\\s+/g, ' ').slice(0, 48);
@@ -273,7 +285,7 @@ FIT_AND_CHECK_JS = """
   if (sub) {
     const lh = parseFloat(getComputedStyle(sub).lineHeight);
     const lines = Math.round(sub.getBoundingClientRect().height / lh);
-    if (lines > 2) issues.push(`subtitle wraps to ${lines} lines`);
+    if (lines > 1) issues.push(`subtitle wraps to ${lines} lines`);
   }
 
   const dev = document.querySelector('.developer');
@@ -283,7 +295,7 @@ FIT_AND_CHECK_JS = """
     if (last.bottom > dev.getBoundingClientRect().top - 8)
       issues.push('last feature overlaps the "by developer" line');
   }
-  return {issues, shrunk};
+  return {issues, shrunk, subShrunk};
 }
 """
 
@@ -320,6 +332,11 @@ async def render_one(browser, project: dict[str, Any], template_name: str,
         if result["shrunk"]:
             s = result["shrunk"]
             print(f"  · {project['id']} [{template_name}]: title auto-fit "
+                  f"{s['from']:.0f}px -> {s['to']:.0f}px")
+
+        if result["subShrunk"]:
+            s = result["subShrunk"]
+            print(f"  · {project['id']} [{template_name}]: subtitle auto-fit "
                   f"{s['from']:.0f}px -> {s['to']:.0f}px")
 
         out = None

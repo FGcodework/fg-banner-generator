@@ -58,6 +58,7 @@ radius of the FG logos.
 - `fgcustomrightclick`
 - `admin-login-customizer`
 - `remove-generator`
+- `editor-switcher`
 
 ## Design rationale
 

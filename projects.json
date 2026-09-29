@@ -306,6 +306,56 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
+    },
+    {
+      "id": "editor-switcher",
+      "title": "Editor Switcher",
+      "subtitle": "Switch WYSIWYG editors on the fly — without losing what you typed.",
+      "extension_type": "Editor Plugin",
+      "logo": "assets/logos/editor-switcher.png",
+      "placeholder_logo": "⇄",
+      "template": "jed",
+      "category": {
+        "name": "Editors",
+        "icon": "browser"
+      },
+      "joomla": [
+        "Joomla 4",
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        {
+          "icon": "replace",
+          "heading": "Any editor, any time",
+          "description": "TinyMCE, CodeMirror, JCE and more - pick per session",
+          "hero": true
+        },
+        {
+          "icon": "shield-check",
+          "heading": "Content never lost",
+          "description": "unsaved changes carry over automatically when you switch"
+        },
+        {
+          "icon": "world",
+          "heading": "Works everywhere",
+          "description": "subform rows, AJAX-loaded forms, front-end and back-end"
+        },
+        {
+          "icon": "code",
+          "heading": "Joomla 4, 5 & 6 native",
+          "description": "PSR-4, DI container, a self-hosted update channel"
+        }
+      ],
+      "output": "fg-editor-switcher.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.04,
+      "logo_offset_x": 2,
+      "logo_offset_y": 0
     }
   ]
 }
