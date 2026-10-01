@@ -408,6 +408,56 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
+    },
+    {
+      "id": "watermark",
+      "title": "Watermark",
+      "subtitle": "Automatic image & text watermarking for Joomla articles",
+      "extension_type": "Content Plugin",
+      "logo": "assets/logos/watermark.png",
+      "placeholder_logo": "W",
+      "template": "jed",
+      "category": {
+        "name": "Photos & Images",
+        "icon": "image"
+      },
+      "joomla": [
+        "Joomla 4",
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        {
+          "icon": "photo",
+          "heading": "Image & text watermarks",
+          "description": "Logo overlay, text overlay, or both - positioned and styled independently",
+          "hero": true
+        },
+        {
+          "icon": "file",
+          "heading": "SVG logo support",
+          "description": "Rasterized automatically via Imagick - no manual PNG conversion needed"
+        },
+        {
+          "icon": "bolt",
+          "heading": "Cached & atomic writes",
+          "description": "Nothing re-rendered per page load; source images are never modified"
+        },
+        {
+          "icon": "code",
+          "heading": "Native Joomla 4/5/6",
+          "description": "PSR-4, DI service provider, SubscriberInterface architecture"
+        }
+      ],
+      "output": "fg-watermark.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     }
   ]
 }

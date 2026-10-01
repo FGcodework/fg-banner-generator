@@ -94,6 +94,7 @@ Aktuálne sú pripravené tieto konfigurácie:
 - `remove-generator`
 - `editor-switcher`
 - `offline-ip-whitelist`
+- `watermark`
 
 ## Šablóny
 

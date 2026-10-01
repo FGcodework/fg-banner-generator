@@ -79,6 +79,7 @@ The line in the bottom-right corner can show a logo instead of the text `by FGco
 - `remove-generator`
 - `editor-switcher`
 - `offline-ip-whitelist`
+- `watermark`
 
 ## Design rationale
 
