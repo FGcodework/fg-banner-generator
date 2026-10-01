@@ -7,6 +7,7 @@ Commands
     python render.py all                   render every project
     python render.py <project-id>          render one project
     python render.py icons                 build output/icons.html (icon catalog)
+    python render.py disclaimer [id]       print the OSM Joomla disclaimer (Markdown) for README / JED
 
 Options
     --template NAME      override the template of every selected project
@@ -154,6 +155,13 @@ def asset_data_uri(relative_path: str | None) -> str | None:
     data = base64.b64encode(p.read_bytes()).decode("ascii")
     return f"data:{mime};base64,{data}"
 
+
+DISCLAIMER = (
+    "This product ({name}) is not affiliated with or endorsed by [The Joomla! Project\u2122](https://www.joomla.org). "
+    "It is not supported or warranted by The Joomla Project or Open Source Matters. "
+    "The Joomla!\u00ae name and logo is used under a limited license granted by Open Source Matters "
+    "the trademark holder in the United States and other countries."
+)
 
 _font_css_cache: str | None = None
 
@@ -346,6 +354,12 @@ FIT_AND_CHECK_JS = """
     if (lines > 1) issues.push(`subtitle wraps to ${lines} lines`);
   }
 
+  const bd = document.querySelector('.badges');
+  if (bd && bd.children.length) {
+    const c0 = bd.children[0].getBoundingClientRect();
+    if (bd.getBoundingClientRect().height > c0.height * 1.5) issues.push('badges wrap to more than one line');
+  }
+
   const dev = document.querySelector('.developer');
   const feats = document.querySelectorAll('.feature');
   if (dev && feats.length) {
@@ -517,9 +531,9 @@ def write_icon_catalog() -> Path:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="FG Banner Generator v3.3")
-    ap.add_argument("command", help="list | check | all | icons | <project-id>")
+    ap.add_argument("command", help="list | check | all | icons | disclaimer | <project-id>")
     ap.add_argument("target", nargs="?", default=None,
-                    help="Project id (only used with `check`).")
+                    help="Project id (used with `check` and `disclaimer`).")
     ap.add_argument("--template", default=None,
                     help=f"Override the template ({', '.join(available_templates())}).")
     ap.add_argument("--all-templates", action="store_true",
@@ -534,6 +548,15 @@ def main() -> None:
             flag = "" if not e else "  ✗ " + "; ".join(e)
             print(f"{p['id']:<22} {p['template']:<8} "
                   f"{p.get('title_prefix', 'FG')} {p['title']}{flag}")
+        return
+
+    if a.command == "disclaimer":
+        ps = [p for p in projects() if not a.target or p["id"] == a.target]
+        if not ps:
+            raise SystemExit(f"Unknown project: {a.target}")
+        for p in ps:
+            name = f"{p.get('title_prefix', 'FG')} {p['title']}"
+            print(f"### {name}\n\n> {DISCLAIMER.format(name=name)}\n")
         return
 
     if a.command == "icons":

@@ -88,6 +88,23 @@ conditions (see that page for the complete list):
 
 If `joomla_logo` points to a missing file, `python render.py check` warns and the word "Joomla" is used.
 
+### Where the disclaimer and the link to joomla.org go
+
+The banner is only an image, so the disclaimer and a link to https://www.joomla.org must be in the **text of every
+page that shows the banner**: the JED listing description, the README of the plugin repository and your own website
+(e.g. the page that lists the plugins). Print the ready text for every plugin (Markdown, with the link):
+
+```bash
+python render.py disclaimer              # all plugins
+python render.py disclaimer watermark    # one plugin
+```
+
+- README: paste it at the end under a `## Disclaimer` heading.
+- JED: paste the same sentence at the end of the description. If the editor has no link button, write the URL
+  `https://www.joomla.org` as plain text next to it.
+- Do not add the logo to the banner before OSM confirms the registration; without the logo the word "Joomla" in the
+  badge needs no permission.
+
 ## Logo
 
 The logo fills the whole square frame (`contain`, so nothing is cropped and non-square
