@@ -59,6 +59,7 @@ radius of the FG logos.
 - `admin-login-customizer`
 - `remove-generator`
 - `editor-switcher`
+- `offline-ip-whitelist`
 
 ## Design rationale
 

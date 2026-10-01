@@ -93,6 +93,7 @@ Aktuálne sú pripravené tieto konfigurácie:
 - `admin-login-customizer`
 - `remove-generator`
 - `editor-switcher`
+- `offline-ip-whitelist`
 
 ## Šablóny
 

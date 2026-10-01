@@ -356,6 +356,56 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
+    },
+    {
+      "id": "offline-ip-whitelist",
+      "title": "Offline IP Whitelist",
+      "subtitle": "Let trusted IPs bypass Site Offline — no admin login needed.",
+      "extension_type": "System Plugin",
+      "logo": "assets/logos/offline-ip-whitelist.png",
+      "placeholder_logo": "⚿",
+      "template": "jed",
+      "category": {
+        "name": "Site Management",
+        "icon": "lock"
+      },
+      "joomla": [
+        "Joomla 4",
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        {
+          "icon": "server",
+          "heading": "IPv4, IPv6 & CIDR",
+          "description": "exact addresses or ranges, matched safely",
+          "hero": true
+        },
+        {
+          "icon": "world",
+          "heading": "Cloudflare & CDN aware",
+          "description": "X-Forwarded-For, CF-Connecting-IP, True-Client-IP"
+        },
+        {
+          "icon": "eye",
+          "heading": "Live IP preview",
+          "description": "see your own detected IP right in the settings"
+        },
+        {
+          "icon": "code",
+          "heading": "Joomla 4, 5 & 6 native",
+          "description": "PSR-4, DI container, self-hosted update channel"
+        }
+      ],
+      "output": "fg-offline-ip-whitelist.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     }
   ]
 }
