@@ -40,6 +40,19 @@
     </div>
 
     <div class="extension-type">{{ extension_type }}</div>
+
+    {% if show_badges and (joomla or download or license) %}
+    <div class="badges">
+      {% if joomla %}
+      <span class="badge badge-joomla">
+        {% if joomla_logo_uri %}<img class="joomla-mark" src="{{ joomla_logo_uri }}" alt="Joomla">{% else %}Joomla{% endif %}
+        <span>{{ joomla_versions }}</span>
+      </span>
+      {% endif %}
+      {% if download %}<span class="badge">{{ download }}</span>{% endif %}
+      {% if license %}<span class="badge">{{ license }}</span>{% endif %}
+    </div>
+    {% endif %}
   </section>
 
   <section class="content">
@@ -58,20 +71,6 @@
       </h1>
 
       <div class="subtitle">{{ subtitle }}</div>
-
-      {% if show_badges %}
-      <div class="meta-row">
-        {% for version in joomla %}
-          <span class="badge badge-joomla">{{ version }}</span>
-        {% endfor %}
-        {% if download %}
-          <span class="badge">{{ download }}</span>
-        {% endif %}
-        {% if license %}
-          <span class="badge">{{ license }}</span>
-        {% endif %}
-      </div>
-      {% endif %}
 
       <div class="divider"><i></i></div>
     </header>

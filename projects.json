@@ -5,7 +5,9 @@
     "title_prefix": "FG",
     "brand_logo": "assets/brand/fgcodework.svg",
     "brand_logo_height": 40,
+    "show_badges": true,
     "theme": "orange",
+    "joomla_logo": "assets/brand/Joomla_Symbol_BW_Rev_TM.png",
     "palette": {
       "background_top": "#071B35",
       "background_bottom": "#031126",

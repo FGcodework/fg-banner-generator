@@ -133,6 +133,7 @@ def merged_project(data: dict[str, Any], project: dict[str, Any]) -> dict[str, A
     cfg.setdefault("developer", "")
     cfg.setdefault("brand_logo", "")
     cfg.setdefault("show_badges", False)
+    cfg.setdefault("joomla_logo", "")
     cfg.setdefault("brand_logo_height", None)
     cfg.setdefault("output", f"{cfg.get('id', 'banner')}.png")
     return cfg
@@ -226,6 +227,10 @@ def validate(project: dict[str, Any], template_name: str) -> tuple[list[str], li
     if not all((FONTS_DIR / f[0]).exists() for f in FONT_FILES):
         warnings.append("assets/fonts/ is missing - the system DejaVu Sans / Verdana is used instead of the bundled font")
 
+    jl = project.get("joomla_logo")
+    if jl and not (ROOT / jl).exists():
+        warnings.append(f"{pid}: joomla_logo '{jl}' not found - the word 'Joomla' is shown instead")
+
     bl = project.get("brand_logo")
     if bl and not (ROOT / bl).exists():
         warnings.append(f"{pid}: brand_logo '{bl}' not found - the 'by <developer>' text will be used")
@@ -263,6 +268,10 @@ def render_html(project: dict[str, Any], template_name: str) -> str:
     ctx["logo_uri"] = asset_data_uri(project.get("logo"))
     ctx["brand_logo_uri"] = asset_data_uri(project.get("brand_logo"))
     ctx["font_css"] = font_css()
+    ctx["joomla_logo_uri"] = asset_data_uri(project.get("joomla_logo"))
+    # "Joomla 4" -> "4", "Joomla 3.10" -> "3.10", "Joomla 4–6" -> "4–6"
+    ctx["joomla_versions"] = " · ".join(
+        str(v).replace("Joomla", "").strip() for v in (project.get("joomla") or []))
     ctx["css_text"] = (TEMPLATES_DIR / f"{template_name}.css").read_text(encoding="utf-8")
     ctx["template_name"] = template_name
     return env.get_template(f"{template_name}.html").render(**ctx)

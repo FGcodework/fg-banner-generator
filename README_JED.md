@@ -53,8 +53,40 @@ same on every machine and on GitHub Actions, no matter which fonts are installed
   the banner shrink together (min 20 px), so they stay equally big.
 - The left panel (logo frame) is narrow: 26 % of the width, frame 268 px, inner box 244 px with a
   45 px radius (= 18.5 %, the radius of the logos).
-- The Joomla / Free / GPL badges are **off**. Set `"show_badges": true` in `defaults` (or in a
-  project) to show them again (`joomla`, `download`, `license` keys).
+- The badges (Joomla versions, Free, GPL) are in the **left panel** under the extension type, see
+  "Badges" below.
+
+## Badges (left panel)
+
+Under the extension type the left panel shows `Joomla 4 · 5 · 6`, `Free` and `GPL`, taken from the
+`joomla`, `download` and `license` keys of a project (`"Joomla 3.10"`, `"Joomla 4–6"` become
+`3.10 · 4–6`). `"show_badges": false` (in `defaults` or in a project) hides them.
+
+### Joomla logo instead of the word "Joomla" (optional - it is a trademark)
+
+By default the word "Joomla" is shown (mentioning the name in text is a descriptive use). To show the
+Joomla symbol instead, put the **unmodified** file into `assets/brand/` and set
+
+```json
+"defaults": { "joomla_logo": "assets/brand/Joomla_Symbol_BW_Rev_TM.png" }
+```
+
+The repo does not ship the logo: it is a trademark of Open Source Matters, Inc. For GPL extensions OSM
+allows its "Conditional Use Logos" (white / black symbol with TM, downloadable at
+https://tm.joomla.org/conditional-use-logos.html, the white one is for the dark banner) under these
+conditions (see that page for the complete list):
+
+1. register the use with OSM first (https://tm.joomla.org/contact.html),
+2. the web page that shows the image links to joomla.org,
+3. your extension name and logo are larger and more prominent than the Joomla logo (here 22 px vs. an 82 px
+   title) and the extension name does not contain "Joomla" / "J!",
+4. the page (JED listing, README) carries the disclaimer: *This product (FG ...) is not affiliated with or
+   endorsed by The Joomla! Project™. It is not supported or warranted by The Joomla Project or Open Source
+   Matters. The Joomla!® name and logo is used under a limited license granted by Open Source Matters the
+   trademark holder in the United States and other countries.*
+5. the logo is not modified (it is only scaled down, never recoloured) - the generator does exactly that.
+
+If `joomla_logo` points to a missing file, `python render.py check` warns and the word "Joomla" is used.
 
 ## Logo
 
@@ -113,7 +145,7 @@ The JED layout intentionally differs from the original glossy FG layout:
 - more restrained logo frame
 - coral FG accent, driven by `palette.panel_glow` in `projects.json`
 - category label
-- optional Joomla/version and free/license badges (`show_badges`, off by default)
+- Joomla/version and free/license badges in the left panel (`show_badges`)
 - one highlighted hero feature (`"hero": true`), aligned on the same icon/text axis as the other rows
 - smaller outline feature icons
 - automatic title sizing: a long title is shrunk by measurement (down to 44 px) instead of by character count

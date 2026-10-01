@@ -219,21 +219,33 @@ h1 .fg {
   color: rgba(255,255,255,.95);
 }
 
-.meta-row {
+.badges {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
-  margin-top: 21px;
+  max-width: 360px;
+  margin-top: 16px;
 }
 
 .badge {
-  padding: 8px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.13);
   background: rgba(255,255,255,.055);
   color: #dbe7f1;
   font-size: 16px;
   font-weight: 700;
+  line-height: 1;
+}
+
+.joomla-mark {
+  display: block;
+  height: 22px;
+  width: auto;
 }
 
 .badge-joomla {
