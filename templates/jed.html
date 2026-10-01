@@ -15,6 +15,7 @@
   --panel-border: {{ palette.panel_border }};
   --glow: {{ palette.panel_glow }};
   --logo-scale: {{ logo_scale if logo_scale is not none else 1 }};
+  --brand-logo-height: {{ brand_logo_height if brand_logo_height is not none else 34 }}px;
   --logo-offset-x: {{ logo_offset_x if logo_offset_x is not none else 0 }}px;
   --logo-offset-y: {{ logo_offset_y if logo_offset_y is not none else 0 }}px;
 }
@@ -86,7 +87,9 @@
       {% endfor %}
     </div>
 
-    {% if developer %}
+    {% if brand_logo_uri %}
+      <div class="developer developer-logo"><img src="{{ brand_logo_uri }}" alt="{{ developer }}"></div>
+    {% elif developer %}
       <div class="developer">by {{ developer }}</div>
     {% endif %}
   </section>

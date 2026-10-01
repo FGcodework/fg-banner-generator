@@ -360,3 +360,15 @@ h1 .fg {
   h1.title-medium { font-size: 59px; }
   h1.title-long { font-size: 53px; }
 }
+
+/* brand logo (e.g. FGcodework) instead of the "by <developer>" text */
+.developer-logo {
+  bottom: 22px;
+  line-height: 0;
+}
+
+.developer-logo img {
+  display: block;
+  height: var(--brand-logo-height, 34px);
+  width: auto;
+}

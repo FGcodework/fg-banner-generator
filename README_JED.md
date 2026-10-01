@@ -50,6 +50,25 @@ radius of the FG logos.
   margins, `1.04` = compensate a transparent margin in the PNG), `logo_offset_x`, `logo_offset_y`.
 - Without a logo the `placeholder_logo` is shown on the dark gradient tile.
 
+## Brand logo (instead of "by <developer>")
+
+The line in the bottom-right corner can show a logo instead of the text `by FGcodework`:
+
+```json
+"defaults": {
+  "brand_logo": "assets/brand/fgcodework.svg",
+  "brand_logo_height": 40
+}
+```
+
+- `brand_logo` is a path to an SVG or PNG (transparent background, made for the dark banner).
+  The logo is right-aligned and sits 22 px above the bottom edge.
+- `brand_logo_height` is optional (default 34 px, the width follows the aspect ratio).
+- It works per project too: put the same keys into a project to override the default.
+- Without `brand_logo` (or if the file is missing - `check` warns) the text `by <developer>` is used.
+- `python render.py check` still reports a feature row that would touch the logo.
+- Only the `jed` template supports it.
+
 ## Projects
 
 - `email-remover`

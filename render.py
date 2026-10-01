@@ -125,6 +125,8 @@ def merged_project(data: dict[str, Any], project: dict[str, Any]) -> dict[str, A
     cfg.setdefault("license", "")
     cfg.setdefault("download", "")
     cfg.setdefault("developer", "")
+    cfg.setdefault("brand_logo", "")
+    cfg.setdefault("brand_logo_height", None)
     cfg.setdefault("output", f"{cfg.get('id', 'banner')}.png")
     return cfg
 
@@ -194,6 +196,10 @@ def validate(project: dict[str, Any], template_name: str) -> tuple[list[str], li
     if not logo:
         warnings.append(f"{pid}: no logo set - placeholder will be used")
 
+    bl = project.get("brand_logo")
+    if bl and not (ROOT / bl).exists():
+        warnings.append(f"{pid}: brand_logo '{bl}' not found - the 'by <developer>' text will be used")
+
     if sum(1 for f in feats if f.get("hero")) > 1:
         warnings.append(f"{pid}: more than one feature has hero=true")
 
@@ -225,6 +231,7 @@ def validate_outputs(selected: list[dict[str, Any]], override: str | None,
 def render_html(project: dict[str, Any], template_name: str) -> str:
     ctx = dict(project)
     ctx["logo_uri"] = asset_data_uri(project.get("logo"))
+    ctx["brand_logo_uri"] = asset_data_uri(project.get("brand_logo"))
     ctx["css_text"] = (TEMPLATES_DIR / f"{template_name}.css").read_text(encoding="utf-8")
     ctx["template_name"] = template_name
     return env.get_template(f"{template_name}.html").render(**ctx)
