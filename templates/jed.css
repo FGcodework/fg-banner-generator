@@ -194,15 +194,15 @@ body {
 h1 {
   margin: 0;
   white-space: nowrap;
-  font-size: 84px;
+  font-size: 82px;
   line-height: 1;
   font-weight: 800;
   letter-spacing: -1.5px;
   text-shadow: 0 5px 16px rgba(0,0,0,.22);
 }
 
-h1.title-medium { font-size: 84px; }
-h1.title-long { font-size: 84px; }
+h1.title-medium { font-size: 82px; }
+h1.title-long { font-size: 82px; }
 
 h1 .fg {
   color: var(--glow);
@@ -325,7 +325,7 @@ h1 .fg {
 
 .feature h2 {
   margin: 0 0 5px;
-  font-size: 32px;
+  font-size: 31px;
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: 0;
@@ -335,7 +335,7 @@ h1 .fg {
 .feature p {
   margin: 0;
   white-space: nowrap;
-  font-size: 25px;
+  font-size: 24px;
   line-height: 1.15;
   font-weight: 500;
   letter-spacing: 0;
@@ -343,7 +343,7 @@ h1 .fg {
 }
 
 .features-3 .feature { min-height: 94px; }
-.features-3 .feature h2 { font-size: 33px; }
+.features-3 .feature h2 { font-size: 32px; }
 
 .developer {
   position: absolute;

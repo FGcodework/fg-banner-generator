@@ -46,10 +46,10 @@ The text is set in **DejaVu Sans** (Regular, Bold, and Oblique for the slogan). 
 same on every machine and on GitHub Actions, no matter which fonts are installed.
 
 - The earlier hand-made 1200 px banner (checked on FG Watermark) was DejaVu Sans as well. JED shows
-  banners at 1200 px width, so the text is sized for that: at 1200 px the description is ~18.8 px, the headings ~24 px, the slogan ~25.5 px and
-  the title ~63 px (the old 1200 px banners had 20 / 25 / 27 / 68 px).
-- Title: 84 px, a longer title is shrunk by measurement (min 44 px). Slogan: 34 px oblique, shrunk to one
-  line (min 26 px). Feature headings 32 px, descriptions 25 px; if the longest does not fit **all** descriptions of
+  banners at 1200 px width, so the text is sized for that: at 1200 px the description is ~18 px, the headings ~23 px, the slogan ~25.5 px and
+  the title ~61.5 px (the old 1200 px banners had 20 / 25 / 27 / 68 px).
+- Title: 82 px, a longer title is shrunk by measurement (min 44 px). Slogan: 34 px oblique, shrunk to one
+  line (min 26 px). Feature headings 31 px, descriptions 24 px; if the longest does not fit **all** descriptions of
   the banner shrink together (min 20 px), so they stay equally big.
 - The left panel (logo frame) is narrow: 26 % of the width, frame 268 px, inner box 244 px with a
   45 px radius (= 18.5 %, the radius of the logos).
