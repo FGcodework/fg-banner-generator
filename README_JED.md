@@ -41,15 +41,15 @@ JED output is written to `output/jed/`, the original style to `output/banner/`.
 
 ## Typography and layout
 
-The text is set in **DejaVu Sans** (Regular + Bold). The font is bundled in `assets/fonts/`
-(Latin subset, ~27 kB each, embedded into every banner as a data URI), so the banner looks the
+The text is set in **DejaVu Sans** (Regular, Bold, and Oblique for the slogan). The font is bundled in `assets/fonts/`
+(Latin subset, ~26 kB each, embedded into every banner as a data URI), so the banner looks the
 same on every machine and on GitHub Actions, no matter which fonts are installed.
 
 - The earlier hand-made 1200 px banner (checked on FG Watermark) was DejaVu Sans as well. JED shows
-  banners at 1200 px width, so the text is sized for that: at 1200 px the description is ~19.5 px, the headings ~25 px, the slogan ~25 px and
+  banners at 1200 px width, so the text is sized for that: at 1200 px the description is ~18.8 px, the headings ~24 px, the slogan ~25.5 px and
   the title ~63 px (the old 1200 px banners had 20 / 25 / 27 / 68 px).
-- Title: 84 px, a longer title is shrunk by measurement (min 44 px). Slogan: 34 px, shrunk to one
-  line (min 26 px). Feature descriptions: 26 px, if the longest does not fit **all** descriptions of
+- Title: 84 px, a longer title is shrunk by measurement (min 44 px). Slogan: 34 px oblique, shrunk to one
+  line (min 26 px). Feature headings 32 px, descriptions 25 px; if the longest does not fit **all** descriptions of
   the banner shrink together (min 20 px), so they stay equally big.
 - The left panel (logo frame) is narrow: 26 % of the width, frame 268 px, inner box 244 px with a
   45 px radius (= 18.5 %, the radius of the logos).

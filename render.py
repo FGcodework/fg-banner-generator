@@ -47,7 +47,11 @@ TEMPLATES_DIR = ROOT / "templates"
 ICONS_DIR = TEMPLATES_DIR / "icons"
 OUTPUT_DIR = ROOT / "output"
 FONTS_DIR = ROOT / "assets" / "fonts"
-FONT_FILES = (("DejaVuSans-Latin.woff2", 400), ("DejaVuSans-Bold-Latin.woff2", 700))
+FONT_FILES = (
+    ("DejaVuSans-Latin.woff2", 400, "normal"),
+    ("DejaVuSans-Bold-Latin.woff2", 700, "normal"),
+    ("DejaVuSans-Oblique-Latin.woff2", 400, "italic"),
+)
 
 DEFAULT_WIDTH = 1600
 DEFAULT_HEIGHT = 700
@@ -158,13 +162,13 @@ def font_css() -> str:
     global _font_css_cache
     if _font_css_cache is None:
         rules = []
-        for name, weight in FONT_FILES:
+        for name, weight, style in FONT_FILES:
             f = FONTS_DIR / name
             if f.exists():
                 b64 = base64.b64encode(f.read_bytes()).decode("ascii")
                 rules.append(
-                    "@font-face{font-family:'FG Sans';font-style:normal;font-weight:%d;"
-                    "src:url(data:font/woff2;base64,%s) format('woff2');}" % (weight, b64)
+                    "@font-face{font-family:'FG Sans';font-style:%s;font-weight:%d;"
+                    "src:url(data:font/woff2;base64,%s) format('woff2');}" % (style, weight, b64)
                 )
         _font_css_cache = "".join(rules)
     return _font_css_cache
@@ -219,7 +223,7 @@ def validate(project: dict[str, Any], template_name: str) -> tuple[list[str], li
     if not logo:
         warnings.append(f"{pid}: no logo set - placeholder will be used")
 
-    if not all((FONTS_DIR / n).exists() for n, _ in FONT_FILES):
+    if not all((FONTS_DIR / f[0]).exists() for f in FONT_FILES):
         warnings.append("assets/fonts/ is missing - the system DejaVu Sans / Verdana is used instead of the bundled font")
 
     bl = project.get("brand_logo")

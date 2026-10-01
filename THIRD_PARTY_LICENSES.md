@@ -33,7 +33,7 @@ SOFTWARE.
 
 ## DejaVu Sans
 
-The JED banner template uses **DejaVu Sans** (Regular and Bold, Latin subset) from `assets/fonts/`.
+The JED banner template uses **DejaVu Sans** (Regular, Bold and Oblique, Latin subset) from `assets/fonts/`.
 
 - Project: DejaVu fonts, https://dejavu-fonts.github.io/
 - License: Bitstream Vera Fonts license (free to use, embed and redistribute; DejaVu changes are in the public domain)

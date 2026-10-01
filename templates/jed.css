@@ -213,6 +213,7 @@ h1 .fg {
   margin-top: 16px;
   font-size: 34px;
   line-height: 1.18;
+  font-style: italic;
   font-weight: 500;
   letter-spacing: 0;
   color: rgba(255,255,255,.95);
@@ -324,7 +325,7 @@ h1 .fg {
 
 .feature h2 {
   margin: 0 0 5px;
-  font-size: 33px;
+  font-size: 32px;
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: 0;
@@ -334,7 +335,7 @@ h1 .fg {
 .feature p {
   margin: 0;
   white-space: nowrap;
-  font-size: 26px;
+  font-size: 25px;
   line-height: 1.15;
   font-weight: 500;
   letter-spacing: 0;
@@ -342,7 +343,7 @@ h1 .fg {
 }
 
 .features-3 .feature { min-height: 94px; }
-.features-3 .feature h2 { font-size: 34px; }
+.features-3 .feature h2 { font-size: 33px; }
 
 .developer {
   position: absolute;
