@@ -46,6 +46,8 @@ PROJECTS_FILE = ROOT / "projects.json"
 TEMPLATES_DIR = ROOT / "templates"
 ICONS_DIR = TEMPLATES_DIR / "icons"
 OUTPUT_DIR = ROOT / "output"
+FONTS_DIR = ROOT / "assets" / "fonts"
+FONT_FILES = (("DejaVuSans-Latin.woff2", 400), ("DejaVuSans-Bold-Latin.woff2", 700))
 
 DEFAULT_WIDTH = 1600
 DEFAULT_HEIGHT = 700
@@ -126,6 +128,7 @@ def merged_project(data: dict[str, Any], project: dict[str, Any]) -> dict[str, A
     cfg.setdefault("download", "")
     cfg.setdefault("developer", "")
     cfg.setdefault("brand_logo", "")
+    cfg.setdefault("show_badges", False)
     cfg.setdefault("brand_logo_height", None)
     cfg.setdefault("output", f"{cfg.get('id', 'banner')}.png")
     return cfg
@@ -145,6 +148,26 @@ def asset_data_uri(relative_path: str | None) -> str | None:
     mime = mimetypes.guess_type(p.name)[0] or "application/octet-stream"
     data = base64.b64encode(p.read_bytes()).decode("ascii")
     return f"data:{mime};base64,{data}"
+
+
+_font_css_cache: str | None = None
+
+
+def font_css() -> str:
+    """@font-face rules with the bundled DejaVu Sans (subset) as data URIs: identical rendering on any machine / CI."""
+    global _font_css_cache
+    if _font_css_cache is None:
+        rules = []
+        for name, weight in FONT_FILES:
+            f = FONTS_DIR / name
+            if f.exists():
+                b64 = base64.b64encode(f.read_bytes()).decode("ascii")
+                rules.append(
+                    "@font-face{font-family:'FG Sans';font-style:normal;font-weight:%d;"
+                    "src:url(data:font/woff2;base64,%s) format('woff2');}" % (weight, b64)
+                )
+        _font_css_cache = "".join(rules)
+    return _font_css_cache
 
 
 def template_of(project: dict[str, Any], override: str | None) -> str:
@@ -196,6 +219,9 @@ def validate(project: dict[str, Any], template_name: str) -> tuple[list[str], li
     if not logo:
         warnings.append(f"{pid}: no logo set - placeholder will be used")
 
+    if not all((FONTS_DIR / n).exists() for n, _ in FONT_FILES):
+        warnings.append("assets/fonts/ is missing - the system DejaVu Sans / Verdana is used instead of the bundled font")
+
     bl = project.get("brand_logo")
     if bl and not (ROOT / bl).exists():
         warnings.append(f"{pid}: brand_logo '{bl}' not found - the 'by <developer>' text will be used")
@@ -232,6 +258,7 @@ def render_html(project: dict[str, Any], template_name: str) -> str:
     ctx = dict(project)
     ctx["logo_uri"] = asset_data_uri(project.get("logo"))
     ctx["brand_logo_uri"] = asset_data_uri(project.get("brand_logo"))
+    ctx["font_css"] = font_css()
     ctx["css_text"] = (TEMPLATES_DIR / f"{template_name}.css").read_text(encoding="utf-8")
     ctx["template_name"] = template_name
     return env.get_template(f"{template_name}.html").render(**ctx)
@@ -261,6 +288,17 @@ FIT_AND_CHECK_JS = """
       h1.style.fontSize = s + 'px';
     }
     if (s !== start) shrunk = {from: start, to: s};
+  }
+
+  // feature descriptions: one common size per banner - shrink them all together if the longest does not fit
+  let pShrunk = null;
+  const pEls = [...document.querySelectorAll('.feature p')];
+  if (pEls.length) {
+    const tooWide = () => pEls.some(p => p.scrollWidth > p.clientWidth + 1);
+    const start = parseFloat(getComputedStyle(pEls[0]).fontSize);
+    let s = start;
+    while (tooWide() && s > 20) { s -= 0.5; pEls.forEach(p => p.style.fontSize = s + 'px'); }
+    if (s !== start) pShrunk = {from: start, to: s};
   }
 
   // subtitle: shrink until it fits on one line (down to 26px)
@@ -302,7 +340,7 @@ FIT_AND_CHECK_JS = """
     if (last.bottom > dev.getBoundingClientRect().top - 8)
       issues.push('last feature overlaps the "by developer" line');
   }
-  return {issues, shrunk, subShrunk};
+  return {issues, shrunk, subShrunk, pShrunk};
 }
 """
 
@@ -341,6 +379,10 @@ async def render_one(browser, project: dict[str, Any], template_name: str,
             print(f"  · {project['id']} [{template_name}]: title auto-fit "
                   f"{s['from']:.0f}px -> {s['to']:.0f}px")
 
+        if result["pShrunk"]:
+            s = result["pShrunk"]
+            print(f"  · {project['id']} [{template_name}]: descriptions auto-fit "
+                  f"{s['from']:.1f}px -> {s['to']:.1f}px")
         if result["subShrunk"]:
             s = result["subShrunk"]
             print(f"  · {project['id']} [{template_name}]: subtitle auto-fit "

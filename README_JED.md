@@ -39,6 +39,23 @@ python render.py check
 JED output is written to `output/jed/`, the original style to `output/banner/`.
 `output/index.html` lists everything that has been rendered, grouped by template.
 
+## Typography and layout
+
+The text is set in **DejaVu Sans** (Regular + Bold). The font is bundled in `assets/fonts/`
+(Latin subset, ~27 kB each, embedded into every banner as a data URI), so the banner looks the
+same on every machine and on GitHub Actions, no matter which fonts are installed.
+
+- The earlier hand-made 1200 px banner (checked on FG Watermark) was DejaVu Sans as well. JED shows
+  banners at 1200 px width, so the text is sized for that: at 1200 px the description is ~19.5 px, the headings ~25 px, the slogan ~25 px and
+  the title ~63 px (the old 1200 px banners had 20 / 25 / 27 / 68 px).
+- Title: 84 px, a longer title is shrunk by measurement (min 44 px). Slogan: 34 px, shrunk to one
+  line (min 26 px). Feature descriptions: 26 px, if the longest does not fit **all** descriptions of
+  the banner shrink together (min 20 px), so they stay equally big.
+- The left panel (logo frame) is narrow: 26 % of the width, frame 268 px, inner box 244 px with a
+  45 px radius (= 18.5 %, the radius of the logos).
+- The Joomla / Free / GPL badges are **off**. Set `"show_badges": true` in `defaults` (or in a
+  project) to show them again (`joomla`, `download`, `license` keys).
+
 ## Logo
 
 The logo fills the whole square frame (`contain`, so nothing is cropped and non-square
@@ -96,8 +113,7 @@ The JED layout intentionally differs from the original glossy FG layout:
 - more restrained logo frame
 - coral FG accent, driven by `palette.panel_glow` in `projects.json`
 - category label
-- Joomla/version badges
-- free/license badges
+- optional Joomla/version and free/license badges (`show_badges`, off by default)
 - one highlighted hero feature (`"hero": true`), aligned on the same icon/text axis as the other rows
 - smaller outline feature icons
 - automatic title sizing: a long title is shrunk by measurement (down to 44 px) instead of by character count

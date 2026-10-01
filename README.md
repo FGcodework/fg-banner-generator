@@ -101,7 +101,7 @@ Aktuálne sú pripravené tieto konfigurácie:
 Šablóna je dvojica `templates/<názov>.html` + `templates/<názov>.css`. Zoznam šablón sa zisťuje automaticky, takže novú šablónu stačí pridať ako takúto dvojicu, bez zásahu do `render.py`.
 
 - `banner` – pôvodný FG master štýl
-- `jed` – štýl pre adresár rozšírení (kategória, Joomla/licenčné badge, jeden zvýraznený feature)
+- `jed` – štýl pre adresár rozšírení (kategória, jeden zvýraznený feature; písmo DejaVu Sans je súčasťou repa v `assets/fonts/`; badge Joomla/Free/GPL sú vypnuté, zapnú sa cez `show_badges`)
 
 Šablóna sa vyberá v `projects.json` cez `"template"` (štandardne `banner`), alebo jednorazovo cez `--template`. Všetky projekty v `projects.json` majú aktuálne `"template": "jed"`, takže `python render.py all` renderuje JED. Master štýl vyrenderuješ cez `--template banner` alebo `--all-templates`.
 
@@ -121,6 +121,7 @@ Pred renderom (a v CI pred commitom) sa robí:
 - dlhý titulok sa automaticky zmenší (najviac na 44 px),
 - text orezaný horizontálne (`white-space: nowrap`), text príliš blízko okraja,
 - slogan, ktorý sa nezmestí na jeden riadok (najprv sa automaticky zmenší, najviac na 26 px),
+- popisy features, ktoré sa nezmestia (zmenšia sa všetky spoločne, najviac na 20 px),
 - prekryv posledného feature s riadkom „by <developer>“.
 
 `check` (a `--strict`) pri takomto probléme skončí s kódom 1. Bez `--strict` sa banner aj tak vyrenderuje a problém sa vypíše ako `⚠`.

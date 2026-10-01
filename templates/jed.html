@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width={{ width }}, initial-scale=1">
 <title>{{ title_prefix }} {{ title }}</title>
+<style>{{ font_css | safe }}</style>
 <style>{{ css_text | safe }}</style>
 <style>
 :root {
@@ -58,6 +59,7 @@
 
       <div class="subtitle">{{ subtitle }}</div>
 
+      {% if show_badges %}
       <div class="meta-row">
         {% for version in joomla %}
           <span class="badge badge-joomla">{{ version }}</span>
@@ -69,6 +71,7 @@
           <span class="badge">{{ license }}</span>
         {% endif %}
       </div>
+      {% endif %}
 
       <div class="divider"><i></i></div>
     </header>

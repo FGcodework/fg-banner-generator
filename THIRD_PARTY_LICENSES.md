@@ -30,3 +30,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## DejaVu Sans
+
+The JED banner template uses **DejaVu Sans** (Regular and Bold, Latin subset) from `assets/fonts/`.
+
+- Project: DejaVu fonts, https://dejavu-fonts.github.io/
+- License: Bitstream Vera Fonts license (free to use, embed and redistribute; DejaVu changes are in the public domain)
+- Full text: `assets/fonts/LICENSE-DejaVu.txt`
