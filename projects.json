@@ -6,7 +6,7 @@
     "brand_logo": "assets/brand/fgcodework.svg",
     "brand_logo_height": 40,
     "show_badges": true,
-    "joomla_logo": "assets/brand/Joomla_Symbol_BW_Rev_TM.png"    
+    "joomla_logo": "assets/brand/Joomla_Symbol_BW_Rev_TM.png",
     "theme": "orange",
     "palette": {
       "background_top": "#071B35",
