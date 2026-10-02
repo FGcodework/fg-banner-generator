@@ -7,7 +7,6 @@
     "brand_logo_height": 40,
     "show_badges": true,
     "theme": "orange",
-    "joomla_logo": "assets/brand/Joomla_Symbol_BW_Rev_TM.png",
     "palette": {
       "background_top": "#071B35",
       "background_bottom": "#031126",
@@ -455,6 +454,56 @@
         }
       ],
       "output": "fg-watermark.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
+    },
+    {
+      "id": "responsive-tables",
+      "title": "Responsive Tables",
+      "subtitle": "Cards on mobile, table on desktop.",
+      "extension_type": "System Plugin",
+      "logo": "assets/logos/responsive-tables.png",
+      "placeholder_logo": "▤",
+      "template": "jed",
+      "category": {
+        "name": "Style & Design",
+        "icon": "device-desktop"
+      },
+      "joomla": [
+        "Joomla 4",
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        {
+          "icon": "files",
+          "heading": "Cards on mobile",
+          "description": "table rows become labelled, accessible cards below your breakpoint",
+          "hero": true
+        },
+        {
+          "icon": "eye",
+          "heading": "Accessibility built in",
+          "description": "ARIA roles, region labels, dark mode & RTL support"
+        },
+        {
+          "icon": "settings",
+          "heading": "Auto or manual",
+          "description": "enhance all article tables, or opt in per table with one class"
+        },
+        {
+          "icon": "code",
+          "heading": "Joomla 4-6 native",
+          "description": "one plugin, five languages, same update site"
+        }
+      ],
+      "output": "fg-responsive-tables.png",
       "logo_mode": "contain",
       "logo_size": "88%",
       "logo_scale": 1.0,

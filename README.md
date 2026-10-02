@@ -95,6 +95,7 @@ Aktuálne sú pripravené tieto konfigurácie:
 - `editor-switcher`
 - `offline-ip-whitelist`
 - `watermark`
+- `responsive-tables`
 
 ## Šablóny
 

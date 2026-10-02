@@ -78,8 +78,9 @@ conditions (see that page for the complete list):
 
 1. register the use with OSM first (https://tm.joomla.org/contact.html),
 2. the web page that shows the image links to joomla.org,
-3. your extension name and logo are larger and more prominent than the Joomla logo (here 22 px vs. an 82 px
-   title) and the extension name does not contain "Joomla" / "J!",
+3. your extension name and logo are larger and more prominent than the Joomla logo (here 24 px vs. an 82 px
+   title) and the extension name does not contain "Joomla" / "J!" **unless OSM approved that name in writing**
+   (the JED checklist says a name with "Joomla" needs an OSM license; the FG names contain no such word),
 4. the page (JED listing, README) carries the disclaimer: *This product (FG ...) is not affiliated with or
    endorsed by The Joomla! Project™. It is not supported or warranted by The Joomla Project or Open Source
    Matters. The Joomla!® name and logo is used under a limited license granted by Open Source Matters the
@@ -146,6 +147,7 @@ The line in the bottom-right corner can show a logo instead of the text `by FGco
 - `editor-switcher`
 - `offline-ip-whitelist`
 - `watermark`
+- `responsive-tables`
 
 ## Design rationale
 
