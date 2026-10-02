@@ -463,7 +463,7 @@
     {
       "id": "responsive-tables",
       "title": "Responsive Tables",
-      "subtitle": "Cards on mobile, table on desktop.",
+      "subtitle": "Table on desktop, cards on mobile.",
       "extension_type": "System Plugin",
       "logo": "assets/logos/responsive-tables.png",
       "placeholder_logo": "▤",
