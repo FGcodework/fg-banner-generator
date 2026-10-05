@@ -510,6 +510,56 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
+    },
+    {
+      "id": "backend-lang-switcher",
+      "title": "Backend LangSwitcher",
+      "subtitle": "Switch your own admin language in one click.",
+      "extension_type": "Package",
+      "logo": "assets/logos/backend-lang-switcher.png",
+      "placeholder_logo": "⇄",
+      "template": "jed",
+      "category": {
+        "name": "Languages",
+        "icon": "language"
+      },
+      "joomla": [
+        "Joomla 5",
+        "Joomla 6"
+      ],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        {
+          "icon": "replace",
+          "heading": "One-click switching",
+          "description": "per administrator, the site's global language stays untouched",
+          "hero": true
+        },
+        {
+          "icon": "user",
+          "heading": "Temporary or permanent",
+          "description": "lasts until you log out, or is saved to your profile"
+        },
+        {
+          "icon": "settings",
+          "heading": "Dropdown or inline",
+          "description": "native name, code or both, with a custom icon"
+        },
+        {
+          "icon": "code",
+          "heading": "Joomla 5 & 6 native",
+          "description": "module + system plugin in one package, ready after install"
+        }
+      ],
+      "output": "fg-backend-lang-switcher.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     }
+    
   ]
 }
