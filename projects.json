@@ -30,7 +30,7 @@
       "placeholder_logo": "@",
       "template": "jed",
       "category": {
-        "name": "Site Management",
+        "name": "Spam Protection",
         "icon": "shield"
       },
       "joomla": [
@@ -42,7 +42,7 @@
       "developer": "FGcodework",
       "features": [
         {
-          "icon": "shield",
+          "icon": "mail",
           "heading": "Remove or replace",
           "description": "strip mailto: links & plain-text addresses site-wide",
           "hero": true
@@ -66,7 +66,7 @@
       "output": "fg-email-remover.png",
       "logo_mode": "contain",
       "logo_size": "88%",
-      "logo_scale": 0.92,
+      "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
     },
