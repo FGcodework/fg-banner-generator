@@ -79,8 +79,8 @@
       "placeholder_logo": "</>",
       "template": "jed",
       "category": {
-        "name": "Site Management",
-        "icon": "code"
+        "name": "Content Cleanup",
+        "icon": "broom"
       },
       "joomla": [
         "Joomla 5",
@@ -89,29 +89,29 @@
       "download": "Free",
       "license": "GPL",
       "developer": "FGcodework",
-      "features": [
-        {
-          "icon": "broom",
-          "heading": "Cleaner page output",
-          "description": "remove unnecessary HTML comments from rendered pages",
-          "hero": true
-        },
-        {
-          "icon": "code",
-          "heading": "Markup-aware",
-          "description": "preserve protected code while cleaning normal HTML output"
-        },
-        {
-          "icon": "bolt",
-          "heading": "Lightweight",
-          "description": "fast processing with minimal runtime overhead"
-        },
-        {
-          "icon": "check",
-          "heading": "Modern Joomla",
-          "description": "designed for current Joomla installations"
-        }
-      ],
+	"features": [
+	  {
+		"icon": "eye",
+		"heading": "Hide admin-only notes",
+		"description": "markers like {-- My City --} vanish on the front-end",
+		"hero": true
+	  },
+	  {
+		"icon": "filter",
+		"heading": "Titles only or whole page",
+		"description": "scope covers h1–h6, page title and link text, or all output"
+	  },
+	  {
+		"icon": "settings",
+		"heading": "Custom delimiters",
+		"description": "swap {-- and --} for your own opening and closing marks"
+	  },
+	  {
+		"icon": "code",
+		"heading": "Joomla 5 & 6 native",
+		"description": "PHP 8.1+, can also run in the administrator if you want"
+	  }
+	],
       "output": "fg-strip-comments.png",
       "logo_mode": "contain",
       "logo_size": "88%",
