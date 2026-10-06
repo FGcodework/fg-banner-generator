@@ -73,7 +73,7 @@
     {
       "id": "strip-comments",
       "title": "Strip Comments",
-      "subtitle": "Cleaner output. Smaller HTML. Zero hassle.",
+      "subtitle": "Label in the admin, clean on the site.",
       "extension_type": "System Plugin",
       "logo": "assets/logos/strip-comments.png",
       "placeholder_logo": "</>",
