@@ -357,7 +357,7 @@
       "output": "fg-editor-switcher.png",
       "logo_mode": "contain",
       "logo_size": "88%",
-      "logo_scale": 1.0,
+      "logo_scale": 1.05,
       "logo_offset_x": 0,
       "logo_offset_y": 0
     },
