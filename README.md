@@ -12,7 +12,7 @@ Jedným skriptom generovať bannery, ktoré patria do jednej produktovej rodiny:
 - slogan, divider line a 3–4 feature rows
 - jednotná typografia a ikonografia
 
-## Použitie
+## Použitie X
 
 ```bash
 python -m pip install -r requirements.txt
