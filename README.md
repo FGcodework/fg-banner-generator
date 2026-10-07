@@ -186,7 +186,7 @@ Táto verzia je považovaná za základný master štýl pre ďalšie FG bannery
 
 ## Logo tuning per project
 
-V3.1 podporuje tieto parametre v `projects.json`:
+v3.1 podporuje tieto parametre v `projects.json`:
 
 ```json
 "logo_mode": "contain",
