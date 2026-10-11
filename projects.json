@@ -559,6 +559,33 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
+    },
+
+    {
+      "id": "system-report",
+      "title": "System Report",
+      "subtitle": "Audit your Joomla site: security score, updates, history.",
+      "extension_type": "Package",
+      "logo": "assets/logos/system-report.png",
+      "placeholder_logo": "▤",
+      "template": "jed",
+      "category": { "name": "Site Management", "icon": "shield-check" },
+      "joomla": ["Joomla 5", "Joomla 6"],
+      "download": "Free",
+      "license": "GPL",
+      "developer": "FGcodework",
+      "features": [
+        { "icon": "shield-check", "heading": "30+ security checks", "description": "site health score, SSL expiry, MFA, backups, vulnerable extensions", "hero": true },
+        { "icon": "puzzle", "heading": "Extensions overview", "description": "available updates, filters, grouping and CSV export" },
+        { "icon": "mail", "heading": "Scheduled alerts", "description": "e-mailed only when something got worse" },
+        { "icon": "code", "heading": "Joomla 5 & 6 native", "description": "component + task plugin in one package, SK and DE included" }
+      ],
+      "output": "fg-system-report.png",
+      "logo_mode": "contain",
+      "logo_size": "88%",
+      "logo_scale": 1.0,
+      "logo_offset_x": 0,
+      "logo_offset_y": 0
     }
     
   ]
