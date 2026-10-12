@@ -586,7 +586,34 @@
       "logo_scale": 1.0,
       "logo_offset_x": 0,
       "logo_offset_y": 0
-    }
-    
+    },
+	  
+	{
+	  "id": "favicon-manager",
+	  "title": "Favicon Manager",
+	  "subtitle": "One source image. Every favicon your site needs.",
+	  "extension_type": "System Plugin",
+	  "logo": "assets/logos/favicon-manager.png",
+	  "placeholder_logo": "★",
+	  "template": "jed",
+	  "category": { "name": "Style & Design", "icon": "image" },
+	  "joomla": ["Joomla 5", "Joomla 6"],
+	  "download": "Free",
+	  "license": "GPL",
+	  "developer": "FGcodework",
+	  "features": [
+	    { "icon": "image", "heading": "One image, every icon", "description": "PNG, JPEG, WebP, AVIF or SVG to all sizes, favicon.ico and Apple touch icon", "hero": true },
+	    { "icon": "device-desktop", "heading": "Android / PWA & iOS", "description": "web app manifest, maskable icons, splash screens" },
+	    { "icon": "browser", "heading": "Dark mode & admin favicon", "description": "dark variant, theme colors, separate administrator icon" },
+	    { "icon": "code", "heading": "Joomla 5 & 6 native", "description": "no template editing, cached icons, English and Slovak" }
+	  ],
+	  "output": "fg-favicon-manager.png",
+	  "logo_mode": "contain",
+	  "logo_size": "88%",
+	  "logo_scale": 1.0,
+	  "logo_offset_x": 0,
+	  "logo_offset_y": 0
+	}    
+
   ]
 }
