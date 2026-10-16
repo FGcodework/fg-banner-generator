@@ -618,7 +618,7 @@
   {
   "id": "extension-manager",
   "title": "Extension Manager",
-  "subtitle": "Install and update all your FG extensions in one place.",
+  "subtitle": "Discover, install and update FG extensions in one place.",
   "extension_type": "Component",
   "logo": "assets/logos/extension-manager.png",
   "placeholder_logo": "▣",
