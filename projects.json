@@ -613,7 +613,34 @@
 	  "logo_scale": 1.0,
 	  "logo_offset_x": 0,
 	  "logo_offset_y": 0
-	}    
+	},
+  
+  {
+  "id": "extension-manager",
+  "title": "Extension Manager",
+  "subtitle": "Install and update all your FG extensions in one place.",
+  "extension_type": "Component",
+  "logo": "assets/logos/extension-manager.png",
+  "placeholder_logo": "▣",
+  "template": "jed",
+  "category": { "name": "Site Management", "icon": "download" },
+  "joomla": ["Joomla 5", "Joomla 6"],
+  "download": "Free",
+  "license": "GPL",
+  "developer": "FGcodework",
+  "features": [
+    { "icon": "search", "heading": "Auto-discovery", "description": "every GitHub repo with the FG topic shows up on refresh", "hero": true },
+    { "icon": "download", "heading": "Install, update, uninstall", "description": "Joomla's own installer, with Update All in one run" },
+    { "icon": "check", "heading": "Compatibility check", "description": "matches Joomla and PHP version from each repo's updates.xml" },
+    { "icon": "code", "heading": "Joomla 5 & 6 native", "description": "changelog preview, enable/disable, CSRF and ACL protected" }
+  ],
+  "output": "fg-extension-manager.png",
+  "logo_mode": "contain",
+  "logo_size": "88%",
+  "logo_scale": 1.0,
+  "logo_offset_x": 0,
+  "logo_offset_y": 0
+}    
 
   ]
 }
