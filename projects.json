@@ -640,6 +640,56 @@
   "logo_scale": 1.0,
   "logo_offset_x": 0,
   "logo_offset_y": 0
+},
+
+{
+  "id": "login-as-user",
+  "title": "Login as User",
+  "subtitle": "Log in as any user to see what they see.",
+  "extension_type": "Package",
+  "logo": "assets/logos/login-as-user.png",
+  "placeholder_logo": "→",
+  "template": "jed",
+  "category": {
+    "name": "Users & Access",
+    "icon": "users"
+  },
+  "joomla": [
+    "Joomla 5",
+    "Joomla 6"
+  ],
+  "download": "Free",
+  "license": "GPL",
+  "developer": "FGcodework",
+  "features": [
+    {
+      "icon": "user",
+      "heading": "Frontend & backend login",
+      "description": "test as any user, your own admin session stays open",
+      "hero": true
+    },
+    {
+      "icon": "lock",
+      "heading": "Permission-controlled",
+      "description": "per user group, with restrictions and optional password check"
+    },
+    {
+      "icon": "files",
+      "heading": "Full audit log",
+      "description": "every attempt logged, with reason and optional e-mail alert"
+    },
+    {
+      "icon": "code",
+      "heading": "Joomla 5 & 6 native",
+      "description": "component + system plugin + action log plugin in one package"
+    }
+  ],
+  "output": "fg-login-as-user.png",
+  "logo_mode": "contain",
+  "logo_size": "88%",
+  "logo_scale": 1.0,
+  "logo_offset_x": 0,
+  "logo_offset_y": 0
 }    
 
   ]
