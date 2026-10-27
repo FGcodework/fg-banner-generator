@@ -602,10 +602,10 @@
 	  "license": "GPL",
 	  "developer": "FGcodework",
 	  "features": [
-	    { "icon": "image", "heading": "One image, every icon", "description": "PNG, JPEG, WebP, AVIF or SVG to all sizes, favicon.ico and Apple touch icon", "hero": true },
+	    { "icon": "image", "heading": "One image, all icons", "description": "PNG, ICO and Apple touch icons generated automatically", "hero": true },
 	    { "icon": "device-desktop", "heading": "Android / PWA & iOS", "description": "web app manifest, maskable icons, splash screens" },
 	    { "icon": "browser", "heading": "Dark mode & admin favicon", "description": "dark variant, theme colors, separate administrator icon" },
-	    { "icon": "code", "heading": "Joomla 5 & 6 native", "description": "no template editing, cached icons, English and Slovak" }
+	    { "icon": "code", "heading": "Joomla 5 & 6 native", "description": "no template editing, cached icons" }
 	  ],
 	  "output": "fg-favicon-manager.png",
 	  "logo_mode": "contain",
