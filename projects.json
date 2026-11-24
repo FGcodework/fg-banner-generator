@@ -690,7 +690,57 @@
   "logo_scale": 1.0,
   "logo_offset_x": 0,
   "logo_offset_y": 0
-}    
+},
+
+{
+  "id": "admin-customizer",
+  "title": "Admin Customizer",
+  "subtitle": "One look for the whole Joomla administrator.",
+  "extension_type": "System Plugin",
+  "logo": "assets/logos/admin-customizer.png",
+  "placeholder_logo": "▣",
+  "template": "jed",
+  "category": {
+    "name": "Site Management",
+    "icon": "settings"
+  },
+  "joomla": [
+    "Joomla 5",
+    "Joomla 6"
+  ],
+  "download": "Free",
+  "license": "GPL",
+  "developer": "FGcodework",
+  "features": [
+    {
+      "icon": "photo",
+      "heading": "Login page & back-end",
+      "description": "logo, background, card, header and sidebar colours",
+      "hero": true
+    },
+    {
+      "icon": "settings",
+      "heading": "One brand colour",
+      "description": "shared radii and shadows, six login presets"
+    },
+    {
+      "icon": "eye",
+      "heading": "Safe by design",
+      "description": "automatic WCAG contrast and a ?fgac=off recovery switch"
+    },
+    {
+      "icon": "code",
+      "heading": "Joomla 5 & 6 native",
+      "description": "Atum is never modified, JSON export and import"
+    }
+  ],
+  "output": "fg-admin-customizer.png",
+  "logo_mode": "contain",
+  "logo_size": "88%",
+  "logo_scale": 1.0,
+  "logo_offset_x": 0,
+  "logo_offset_y": 0
+}
 
   ]
 }
